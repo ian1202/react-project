@@ -8,37 +8,71 @@ import Endomorph from './assets/img/endomorph.png';
 import { FaBacon } from 'react-icons/fa';
 import { FaDrumstickBite } from 'react-icons/fa';
 import { FaBreadSlice } from 'react-icons/fa';
+import { FaDumbbell } from 'react-icons/fa'
 
 
 class Header extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      menu: false
+    };
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  toggleMenu(){
+    this.setState({ menu: !this.state.menu })
+  }
+
   render(){
+
+    const show = (this.state.menu) ? "show" : "" ;
+
     return(
-      <header className="header">
-      <h1>Macro Calculator</h1>
-      <h4>Scientifically Proven and Individually Bespoke</h4>
-      <h5>Designed and Coded By Ian Yen </h5>
+      <header className="header" id="header">
+        <div className="container-fluid">
+          <div className="row nav">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <h1>MACRO <br/>
+              CALCULATOR</h1>
+              <span><FaDumbbell className="faiconimg4"/></span>
+                <nav className="navbar navbar-expand-md navbar-right">
+                  <button className="navbar-toggler navbar-dark navbar-right" id="toggler" type="button" onClick={ this.toggleMenu }>
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
+                    <div className={"collapse navbar-collapse " + show} id="myNavbar">
+                      <ul className="navbar-nav">
+
+                        <li className="nav-item active">
+                          <a className="nav-link" href="#about">HOME <span className="sr-only">(current)</span></a>
+                        </li>
+                        <li className="nav-item">
+                          <a className="nav-link" href="#calculator">CALCULATOR</a>
+                        </li>
+                        <li className="nav-item">
+                          <a className="nav-link" href="#calculator">ABOUT ME</a>
+                        </li>
+                      </ul>
+                    </div>
+                </nav>
+            </div>
+          </div>
+
+          <div className="row title">
+            <div className="col-sm-12 col-md-12 col-lg-12" id="about">
+              <p>Scientifically Proven and Individually Bespoke  </p>
+              <h5> Designed and Coded By <a href="https://ian1202.github.io/ianyen.github.io/" target="_blank" rel="noopener noreferrer"><b>Ian Yen</b></a> </h5>
+              <span> <a id="calculatorbutton" href="#calculator"> Get My Macros </a> </span>
+            </div>
+            </div>
+        </div>
     </header>
+
     )
   }
 }
 
-
-class About extends React.Component {
-  render () {
-    return (
-      <div className="container">
-      <div className="jumbotron">
-      <div className="row" id="about">
-        <div className="col-sm-12 col-md-12 col-lg-12">
-          <p>To calculate your daily calorie and macro goals, simply fill out the information on my calculator below! To learn more about me and my work please visit <a href="https://ian1202.github.io/ianyen.github.io/" target="_blank" rel="noopener noreferrer">My Portfolio</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    )
-  }
-};
 
 
 
@@ -76,7 +110,7 @@ calculateBaseBMR () {
 
 
 
-calculateAdjustedBMR(){
+calculateAdjustedBMR () {
   let exerciselevelcal = this.state.exerciselevel;
   let sedentary = Math.round(this.state.basebmr * 1.2);
   let moderate = Math.round(this.state.basebmr * 1.35);
@@ -107,15 +141,15 @@ calcuateGoal(){
   let maintain = Math.round(this.state.adjustedbmr);
   let gain = Math.round(this.state.adjustedbmr + 500 );
 
-  if (primarygoal = 'loseweight'){
+  if (primarygoal === 'loseweight'){
     this.setState({goal : lose})
   }
 
-  else if (primarygoal = 'gainweight'){
+  else if (primarygoal === 'gainweight'){
     this.setState({goal : maintain})
   }
 
-  else if (primarygoal = 'maintain')
+  else if (primarygoal === 'maintain')
     this.setState({goal : gain})
   
 }
@@ -124,23 +158,26 @@ calcuateGoal(){
 calculateMacro(){
   let goal= this.state.goal;
   let bodytype = this.state.bodytype;
+  let proteiningram="";
+  let fatingram= "";
+  let carbsingram= "";
 
   if (bodytype === 'ectomorph'){
-    var proteiningram = Math.round(goal * 0.25 /4);
-    var fatingram = Math.round(goal * 0.2 / 9);
-    var carbsingram = Math.round(goal * 0.55 / 4);
+    proteiningram = Math.round(goal * 0.25 /4);
+    fatingram = Math.round(goal * 0.2 / 9);
+    carbsingram = Math.round(goal * 0.55 / 4);
   }
 
   else if (bodytype === 'mesomorph'){
-    var proteiningram = Math.round(goal * 0.3 /4);
-    var fatingram = Math.round(goal * 0.3 / 9);
-    var carbsingram = Math.round(goal * 0.4 / 4);
+    proteiningram = Math.round(goal * 0.3 /4);
+    fatingram = Math.round(goal * 0.3 / 9);
+    carbsingram = Math.round(goal * 0.4 / 4);
   }
 
   else if (bodytype === 'endomorph'){
-    var proteiningram = Math.round(goal * 0.35 /4);
-    var fatingram = Math.round(goal * 0.4 / 9);
-    var carbsingram = Math.round(goal * 0.25 / 4);
+    proteiningram = Math.round(goal * 0.35 /4);
+    fatingram = Math.round(goal * 0.4 / 9);
+    carbsingram = Math.round(goal * 0.25 / 4);
   }
 
   this.setState({carbs: carbsingram});
@@ -171,43 +208,44 @@ async handleSubmit(e){
   render(){
 
       return(
+        <div>
           <div className="container">
 
-              <form onSubmit={this.handleSubmit} className="form">  
+              <form onSubmit={this.handleSubmit} className="form" id="calculator">  
 
               <div >
                 <label>
-                   Body Type
+                   Your Body Type
                 </label>
                   <div className="row bodytype">
-                    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 bodytype1">
-                    <input type="radio" id="radioEctomorph" name="bodytype" value="ectomorph" onChange={this.handleChange}></input>
-                    <label for="radioEctomorph"> 
-                    <img src={Ectomorph} alt="ectomorph"></img> 
-                    <br/><span>ECTOMORPH</span> <p>Lean and long, with difficulty building muscle no matter how much you eat or lift</p>
-                    </label>
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 bodytype1">
+                      <input type="radio" id="radioEctomorph" name="bodytype" value="ectomorph" onChange={this.handleChange}></input>
+                      <label for="radioEctomorph"> 
+                      <img src={Ectomorph} alt="ectomorph"></img> 
+                      <br/><span>1. ECTOMORPH</span> <p>Lean and long, with difficulty building muscle no matter how much you eat or lift</p>
+                      </label>
                     </div>
 
-                    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 bodytype2">
-                    <input type="radio" id="radioMesomorph" name="bodytype" value="mesomorph" onChange={this.handleChange}></input>
-                    <label for="radioMesomorph"> 
-                    <img src={Mesomorph} alt="mesomorph"></img> 
-                    <br/><span>MESOMORPH</span> <p>Muscular and well-built, with a high metabolism and responsive muscle cells</p>
-                    </label>
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 bodytype2">
+                      <input type="radio" id="radioMesomorph" name="bodytype" value="mesomorph" onChange={this.handleChange}></input>
+                      <label for="radioMesomorph"> 
+                      <img src={Mesomorph} alt="mesomorph"></img> 
+                      <br/><span>2. MESOMORPH</span> <p>Muscular and well-built, with a high metabolism and responsive muscle cells</p>
+                      </label>
                     </div>
 
-                    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 bodytype3">
-                    <input type="radio" id="radioEndomorph" name="bodytype" value="endomorph" onChange={this.handleChange}></input>
-                    <label for="radioEndomorph"> 
-                    <img src={Endomorph} alt="endomorph"></img> 
-                    <br/><span>ENDOMORPH</span> <p>Big, high body fat, often pear-shaped, with a high tendency to store body fat</p></label> 
+                    <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 bodytype3">
+                      <input type="radio" id="radioEndomorph" name="bodytype" value="endomorph" onChange={this.handleChange}></input>
+                      <label for="radioEndomorph"> 
+                      <img src={Endomorph} alt="endomorph"></img> 
+                      <br/><span>3. ENDOMORPH</span> <p>Big, high body fat, often pear-shaped, with a high tendency to store body fat</p></label> 
                     </div>
                   </div>
               </div> 
 
               <div>
                 <label>
-                   GENDER
+                   Gender
                 </label>
                   <div className="row gender">
 
@@ -227,7 +265,7 @@ async handleSubmit(e){
 
               <div className="age">
                 <label>
-                   AGE 
+                   Age
                 </label>
                 <div>
                   <input type="number" name="age" onChange={this.handleChange} min="1" max= "99" required/>
@@ -237,7 +275,7 @@ async handleSubmit(e){
             <div className="row heightnweight">
               <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 weight">
                 <label>
-                  WEIGHT
+                  Weight
                 </label>
                 <div>
                   <input type="text" name="weight" maxLength="3" onChange={this.handleChange} required/>
@@ -247,7 +285,7 @@ async handleSubmit(e){
 
               <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 height">
                 <label>
-                  HEIGHT
+                  Height
                  </label>
               <div>
                   <input type="text" name="height" maxLength="3" onChange={this.handleChange} requried/>
@@ -258,7 +296,7 @@ async handleSubmit(e){
             
               <div>
                 <label>
-                   EXERCISE LEVEL
+                   Exercise Level
                 </label>
                   <div className="row exerciselevel">
                   
@@ -287,7 +325,7 @@ async handleSubmit(e){
 
               <div>
                 <label>
-                   YOUR PRIMARY GOAL
+                   Your Primary Goal
                 </label>
                   <div className="row primarygoal">
 
@@ -314,21 +352,20 @@ async handleSubmit(e){
                <input href="#resultssection" className="submit" type="submit" value="Submit"/>
               </div>
               </form>
+          </div>
 
-
-              <div className= "resultssection">
-                {this.state.results? 
-                  (
-                    <Results 
-                    goaldata= {this.state.goal}
-                    proteindata = {this.state.protein}
-                    carbsdata = {this.state.carbs}
-                    fatdata = {this.state.fat}/>
-                  ): (
-                    null
-                  )}
-              </div>
-
+            <div>
+            {this.state.results? 
+              (
+                <Results 
+                goaldata= {this.state.goal}
+                proteindata = {this.state.protein}
+                carbsdata = {this.state.carbs}
+                fatdata = {this.state.fat}/>
+              ): (
+                null
+              )}
+            </div>
           </div>
 
       );
@@ -340,23 +377,22 @@ async handleSubmit(e){
 const Results = (props) => {
      return(
        <div>
-         <h1>RESULTS</h1>
-         <div className= "mainresults">
+         <div className= "container-fluid mainresults">
           <h2> TARGET DAILY CALORIES: <h3>{props.goaldata} KCAL </h3> </h2>
          </div>
 
          <div className="row results">
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 faicon">
+            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 faicon1">
               <FaBreadSlice className="faiconimg1"/>
                 <h1> Carbohydrate </h1>
                 <h2> {props.carbsdata} G </h2>
             </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 faicon">
+            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 faicon2">
               <FaBacon className="faiconimg2"/>
                 <h1> Fat </h1>
                 <h2> {props.fatdata} G  </h2>
             </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 faicon">
+            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 faicon3">
               <FaDrumstickBite className="faiconimg3"/>
               <h1> Protein </h1>
               <h2> {props.proteindata} G </h2>
@@ -366,9 +402,9 @@ const Results = (props) => {
      )
    }
 
-  
 
+
+  
 ReactDOM.render(<Header/>, document.getElementById('header'));
-ReactDOM.render(<About/>, document.getElementById('about'))
 ReactDOM.render(<Calculator/>, document.getElementById('calculator'));
-// ReactDOM.render(<Results/>, document.getElementById('result'));
+
