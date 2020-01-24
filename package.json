@@ -2,7 +2,7 @@
   "name": "react-is-fun",
   "version": "0.1.0",
   "private": true,
-  "home": "https://github.com/ian1202/react-project.git",
+  "homepage": "http://ian1202.github.io/react-project",
   "dependencies": {
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.4.1",
