@@ -1,10 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Ectomorph from './assets/img/ectomorph.png';
-import Mesomorph from './assets/img/mesomorph.png';
-import Endomorph from './assets/img/endomorph.png';
 import Results from './Results'
-
+import BodyTypes from './BodyTypes'; 
+import Gender from './Gender'
+import Age from './Age'
+import WeightnHeight from './WeightnHeight';
+import ExerciseLevel from './ExerciseLevel'
+import PrimaryGoal from './PrimaryGoal';
 
 //calculator
 export class Calculator extends React.Component{
@@ -143,144 +145,23 @@ export class Calculator extends React.Component{
   
                 <form onSubmit={this.handleSubmit} className="form" id="calculator">  
   
-                <div >
-                  <label>
-                     Your Body Type
-                  </label>
-                    <div className="row bodytype">
-                      <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 bodytype1">
-                        <input type="radio" id="radioEctomorph" name="bodytype" value="ectomorph" onChange={this.handleChange}></input>
-                        <label for="radioEctomorph"> 
-                        <img src={Ectomorph} alt="ectomorph"></img> 
-                        <br/><span>1. ECTOMORPH</span> <p>Lean and long, with difficulty building muscle no matter how much you eat or lift</p>
-                        </label>
-                      </div>
+                <BodyTypes handleChange = {this.handleChange}/>
+
+                <Gender handleChange = {this.handleChange}/>
   
-                      <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 bodytype2">
-                        <input type="radio" id="radioMesomorph" name="bodytype" value="mesomorph" onChange={this.handleChange}></input>
-                        <label for="radioMesomorph"> 
-                        <img src={Mesomorph} alt="mesomorph"></img> 
-                        <br/><span>2. MESOMORPH</span> <p>Muscular and well-built, with a high metabolism and responsive muscle cells</p>
-                        </label>
-                      </div>
-  
-                      <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 bodytype3">
-                        <input type="radio" id="radioEndomorph" name="bodytype" value="endomorph" onChange={this.handleChange}></input>
-                        <label for="radioEndomorph"> 
-                        <img src={Endomorph} alt="endomorph"></img> 
-                        <br/><span>3. ENDOMORPH</span> <p>Big, high body fat, often pear-shaped, with a high tendency to store body fat</p></label> 
-                      </div>
-                    </div>
-                </div> 
-  
-                <div>
-                  <label>
-                     Gender
-                  </label>
-                    <div className="row gender">
-  
-                      <div className="col-xs-4 col-sm-4 col-md-3 col-lg-2 genderbutton">
-                      <input type="radio" id="radioMale" name="gender" value="male" onClick={this.handleChange}></input>
-                      <label for="radioMale" id="male">MALE</label>
-                      </div>
-  
-                      <div className="col-xs-4 col-sm-4 col-md-3 col-lg-2 genderbutton">
-                      <input type="radio" id="radioFemale" name="gender" value="female" onClick={this.handleChange} ></input>
-                      <label for="radioFemale" id="female">FEMALE</label>
-                      </div>
-                    
-                    </div>
-        
-                </div>
-  
-                <div className="age">
-                  <label>
-                     Age
-                  </label>
-                  <div>
-                    <input type="number" name="age" onChange={this.handleChange} min="1" max= "99" required/>
-                  </div>
-                </div>           
-  
-              <div className="row heightnweight">
-                <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 weight">
-                  <label>
-                    Weight
-                  </label>
-                  <div>
-                    <input type="text" name="weight" maxLength="3" onChange={this.handleChange} required/>
-                    <span id="unit"> KG </span>
-                  </div>
-                </div>  
-  
-                <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 height">
-                  <label>
-                    Height
-                   </label>
-                <div>
-                    <input type="text" name="height" maxLength="3" onChange={this.handleChange} requried/>
-                    <span id="unit"> CM </span>
-                </div>
-                </div>
-              </div>
-              
-                <div>
-                  <label>
-                     Exercise Level
-                  </label>
-                    <div className="row exerciselevel">
-                    
-                    <span className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                    <input type="radio" id="radioSedentary" name="exerciselevel" value="sedentary" onClick={this.handleChange}></input>
-                    <label for="radioSedentary">SEDENTARY <p>(NO EXERCISE)</p></label>
-                    </span>
-  
-                    <span className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                    <input type="radio" id="radioModerate" name="exerciselevel" value="moderate" onClick={this.handleChange}></input>
-                    <label for="radioModerate">MODERATE <p>(1-3 DAYS/ WEEK)</p></label>
-                    </span>
-  
-                    <span className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                    <input type="radio" id="radioActive" name="exerciselevel" value="active" onClick={this.handleChange}></input>
-                    <label for="radioActive">ACTIVE <p>(3-5 DAYS/ WEEK)</p></label> 
-                    </span>
-  
-                    <span className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                    <input type="radio" id="radioVeryActive" name="exerciselevel" value="veryactive" onClick={this.handleChange}></input>
-                    <label for="radioVeryActive">VERY ACTIVE <p>(6-7 DAYS/ WEEK)</p></label> 
-                    </span>
-  
-                    </div>
-                </div> 
-  
-                <div>
-                  <label>
-                     Your Primary Goal
-                  </label>
-                    <div className="row primarygoal">
-  
-                    <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <input type="radio" id="radioLose" name="primarygoal" value="loseweight" onClick={this.handleChange}></input>
-                    <label for="radioLose">LOSE WEIGHT</label>
-                    </div>
-  
-                    <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <input type="radio" id="radioGain" name="primarygoal" value="gainweight" onClick={this.handleChange}></input>
-                    <label for="radioGain">GAIN WEIGHT</label>
-                    </div>
-  
-                    <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <input type="radio" id="radioMaintain" name="primarygoal" value="maintain" onClick={this.handleChange}></input>
-                    <label for="radioMaintain">MAINTAIN </label> 
-                    </div>
-                    
-                    </div>
-        
-                </div>
+                <Age handleChange = {this.handleChange}/>
+
+                <WeightnHeight handleChange = {this.handleChange}/>
+
+                <ExerciseLevel handleChange = {this.handleChange}/>
+
+                <PrimaryGoal handleChange = {this.handleChange}/>
   
                 <div className= "row">
                  <input href="#resultssection" className="submit" type="submit" value="Submit"/>
                 </div>
+
+
                 </form>
             </div>
   
@@ -296,6 +177,7 @@ export class Calculator extends React.Component{
                   null
                 )}
               </div>
+
             </div>
   
         );

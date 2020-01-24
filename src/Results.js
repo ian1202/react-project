@@ -5,7 +5,7 @@ import { FaBreadSlice } from 'react-icons/fa';
 
 
 //results
-export const Results = (props) => {
+const Results = (props) => {
     return(
       <div>
         <div className= "container-fluid mainresults">
