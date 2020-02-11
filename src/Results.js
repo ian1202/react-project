@@ -9,13 +9,13 @@ const Results = (props) => {
     return(
       <div>
         <div className= "container-fluid mainresults">
-         <h2> TARGET DAILY CALORIES: <h3>{props.goaldata} KCAL </h3> </h2>
+         <h2> Your Daily Calories: <h3>{props.goaldata} Kcal </h3> </h2>
         </div>
 
-        <div className="row results">
+        <div className="row text-center results">
            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 faicon1">
              <FaBreadSlice className="faiconimg1"/>
-               <h1> Carbohydrate </h1>
+               <h1> Carbs </h1>
                <h2> {props.carbsdata} G </h2>
            </div>
            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 faicon2">

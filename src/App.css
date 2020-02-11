@@ -55,7 +55,7 @@ img {
   color: yellow;
   float: left;
   font-size: 20px;
-  padding: 30px;
+  padding: 25px;
 
 
 }
@@ -64,13 +64,13 @@ img {
   width: 50px;
   height: 50px;
   color: yellow;
-  margin-top: 25px;
-  margin-left: -15px;
+  margin-top: 23px;
+  margin-left: -22px;
 
 }
 
 .nav {
-  height: 22rem;
+  height: 20rem;
 }
 
 .navbar{
@@ -128,7 +128,7 @@ img {
 }
 
 #about p{
-  font-size: 40px;
+  font-size: 38px;
   padding: 30px;
 }
 
@@ -166,13 +166,42 @@ img {
 
 /* ===================================================================================================*/
 
+.introduction{
+  padding: 5vw;
+}
+
+
+.circleicon {
+  background: black;
+  opacity: 0.9;
+  color: yellow;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+  padding: 30px;
+  margin: 15px;
+
+}
+
+.introduction h1 {
+  color: black;
+  margin: 20px;
+}
+
+
+
+/* ===================================================================================================*/
+
 /* start of form*/
 .form {
   width: 100%;
   margin-top: 50px;
   margin-bottom: 50px;
   padding: 30px;
-  background-color: #FFFFF0;
+  background-color: rgb(180, 180, 180, 0.25);
   border-radius: 10px;
 }
 
@@ -186,7 +215,8 @@ img {
 }
 
 .bodytype1, .bodytype2, .bodytype3 {
-  margin: 0 -3px;
+  margin-left: auto;
+  margin-right: auto;
   height: 350px;
 }
 
@@ -206,21 +236,24 @@ img {
 }
 
 .bodytype label:hover {
-  border: 2px solid orange;
+  border: 2px solid black;
 }
 
 .bodytype input[type="radio"]:focus + label  {
-    border: 2px solid orange;
+    border: 2px solid black;
 }
 
 .bodytype input[type="radio"]:checked + label {
-    border: 2px solid orange;
+    border: 2px solid black;
 }
 
 .bodytype img{
   margin-bottom: 10px;
 }
 
+.bodytype span{
+  color: gray;
+}
 
 
 /* ===================================================================================================*/
@@ -236,9 +269,9 @@ img {
 
 
 #male {
-  background: #4682B4;
+  background: #000080;
   color: white;
-  border: 2px solid #4682B4;
+  border: 2px solid ##000080;
   border-radius: 8px;
   font-size: 16px;
   padding: 10px 20px;
@@ -250,17 +283,18 @@ img {
 
 #male:hover {
   background-color: white;
-  color: #4682B4;
+  color: #000080;
+  border: 2px solid #800080;
 }
 
-.gender input[type="radio"]:focus +  #male {
-  border: 2px solid #4682B4;
+.gender input[type="radio"]:focus {
+  border: 2px solid #000080;
 }
 
-.gender input[type="radio"]:checked + #male {
+.gender input[type="radio"]:checked {
   background-color: white;
-  border-color: #4682B4;
-  color: #4682B4;
+  border-color: #000080;
+  color: #000080;
 }
 
 
@@ -396,12 +430,12 @@ input[type=radio] {
     margin: 13px;
     width: 95%;
     display: inline-block;
-    background-color: #20c997;
+    background-color: #6B8E23;
     padding: 10px 20px;
     text-align: center;
     font-family: sans-serif, Arial;
     font-size: 16px;
-    border: 2px solid #20c997;
+    border: 2px solid #6B8E23;
     border-radius: 8px;
 }
 
@@ -410,12 +444,12 @@ input[type=radio] {
 }
 
 .primarygoal input[type="radio"]:focus + label {
-    border: 2px solid #20c997;
+    border: 2px solid white;
 }
 
 .primarygoal input[type="radio"]:checked + label {
-    background-color: #f8f9fa;
-    border-color: #20c997;
+    background-color: white;
+    border-color: #6B8E23;
 }
 
 
@@ -431,8 +465,8 @@ input[type=radio] {
   font-size: 20px;
   height: 50px;
   color: #fff;
-  background-color: #191970;
-  border: white;
+  background-color: black;
+  border: 2px solid white;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color .15s ease-in;
@@ -440,12 +474,15 @@ input[type=radio] {
 }
   
 .submit:focus:active {
-    background-color: darken(#3fc1c9, 8%);
+  border: 3px solid yellow;
+  color: yellow;
+
   }
 
   
 .submit:hover {
-    border: 3px solid #00BFFF;
+    border: 3px solid yellow;
+    color: yellow;
   }
 
 
@@ -456,7 +493,7 @@ input[type=radio] {
 /* Results */
 
 .results{
-  padding: 30px;
+  padding: 5vw;
   background-color: white;
   animation: fadeIn ease;
   animation-duration: 3s;
@@ -516,6 +553,30 @@ input[type=radio] {
 
 /* ===================================================================================================*/
 
+.footer {
+  background-image: url('./assets/img/browncover.png');
+  padding: 10px;
+}
+
+#socialicon1, #socialicon2, #socialicon3, #socialicon4 {
+  margin: 20px;
+  color: white;
+  width: 30px;
+  height: 30px;
+}
+
+#socialicon1:hover, 
+#socialicon2:hover, 
+#socialicon3:hover, 
+#socialicon4:hover {
+
+  color: yellow;
+}
+
+
+
+/* ===================================================================================================*/
+
 
 /*large devices*/
 @media (min-width: 992px) {
@@ -554,28 +615,33 @@ input[type=radio] {
 /*extra small devices*/
 @media (max-width: 575px) {
 
+  #about p{
+    font-size: 33px;
+    padding: 12px;
+  }
+
 
   .bodytype1, .bodytype2, .bodytype3{
-    width: 10%;
-    height: 10%;
+    width: 90%;
+    height: 50%;
     float: left;
     clear: both;
   }
 
   .bodytype img{
     display: inline-block;
-    height: 50%;
-    width: 30%;
+    width: 150px;
+    height: 180px;
     margin-bottom: 10px;
+  }
+
+  .faicon1, .faicon2, .faicon3 {
+    width: 30%;
   }
 
   .faiconimg1, .faiconimg2, .faiconimg3 {
     float: left;
-    width: 50%;
-    height: 50%;
-    padding: 20px;
-    background-color: #D3D3D3;
-    border-radius: 150px;
+    width: 100px;
   }
 
 

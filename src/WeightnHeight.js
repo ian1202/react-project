@@ -4,17 +4,17 @@ class WeightnHeight extends React.Component{
     render(){
         return(
             <div className="row heightnweight">
-            <div className="col-xs-6 col-sm-6 col-md-3 col-lg-2 weight">
+            <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 weight">
               <label>
                 Weight
               </label>
               <div>
-                <input type="text" name="weight" maxLength="3" onChange={this.handleChange} required/>
+                <input type="text" name="weight" maxLength="3" onChange={this.handleChange} required="true"/>
                 <span id="unit"> KG </span>
               </div>
             </div>  
 
-            <div className="col-xs-6 col-sm-6 col-md-3 col-lg-2 height">
+            <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 height">
               <label>
                 Height
                </label>

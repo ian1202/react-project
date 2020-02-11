@@ -7,7 +7,7 @@ const Age = (props) => {
                Age
             </label>
             <div>
-              <input type="number" name="age" onChange={props.handleChange} min="1" max= "99" required/>
+              <input type="number" name="age" onChange={props.handleChange} min="1" max= "99" required="true"/>
             </div>
         </div> 
     )

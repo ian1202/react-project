@@ -10,9 +10,9 @@ const BodyTypes = (props) => {
 
         <div>
             <label>
-            Your Body Type
+            Which Best Describes You?
             </label>
-            <div className="row bodytype">
+            <div className="row text-center bodytype">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 bodytype1">
                 <input type="radio" id="radioEctomorph" name="bodytype" value="ectomorph" onChange={props.handleChange}></input>
                 <label for="radioEctomorph"> 
