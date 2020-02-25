@@ -69,49 +69,6 @@ img {
 
 }
 
-.nav {
-  height: 20rem;
-}
-
-.navbar{
-  color: white;
-  float: right;
-  margin-top: 20px;
-
-}
-
-.navbar ul {
-  color: gray;
-  font-size: 12px;
-  margin: 2px 0 0 0;
-}
-
-#toggler{
-  background-color: transparent;
-  border: 1px solid white;
-  height: 50px;
-  width: 50px;
-
-}
-
-.navbar ul li {
-  padding: 0;
-  margin: 0;
-}
-.navbar a {
-  font-size: 14px;
-  padding: 10px 10px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.navbar a:hover, .navbar a:focus, .navbar a:active {
-  color: white;
-  text-decoration: underline;
-}
 
 /* ===================================================================================================*/
 
@@ -124,6 +81,7 @@ img {
   color: white;
   display: inline;
   text-align: center;
+  padding: 10rem;
 
 }
 
@@ -194,6 +152,8 @@ img {
 
 
 /* ===================================================================================================*/
+
+
 
 /* start of form*/
 .form {
@@ -554,13 +514,13 @@ input[type=radio] {
 /* ===================================================================================================*/
 
 .footer {
-  background-image: url('./assets/img/browncover.png');
+  background-color: black;
   padding: 10px;
 }
 
 #socialicon1, #socialicon2, #socialicon3, #socialicon4 {
   margin: 20px;
-  color: white;
+  color: yellow;
   width: 30px;
   height: 30px;
 }

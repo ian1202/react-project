@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://ian1202.github.io/react-project",
   "dependencies": {
+    "aos": "^2.3.4",
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.4.1",
     "glyphicons": "^0.2.0",
