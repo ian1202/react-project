@@ -21,7 +21,7 @@ class Header extends React.Component {
   
             <div className="row title">
               <div className="col-sm-12 col-md-12 col-lg-12" id="about">
-                <p>Scientifically Proven and Individually Bespoke  </p>
+                <p>Scientifically Proven and Individually Bespoke Calculator. </p>
                 <h5> Designed and Coded By <a href="https://ian1202.github.io/ianyen.github.io/" target="_blank" rel="noopener noreferrer"><b>Ian Yen</b></a> </h5>
                 <span> <a id="calculatorbutton" href="#calculator"> GET STARTED </a> </span>
               </div>
