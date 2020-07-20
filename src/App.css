@@ -272,7 +272,8 @@ img {
   width: 250px;
 }
 
-#female:hover {
+#female:hover,
+#female:active {
   background-color: white;
   color: #FFB6C1;
 }
