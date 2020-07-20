@@ -241,7 +241,8 @@ img {
   width: 250px;
 }
 
-#male:hover {
+#male:hover,
+#male:active {
   background-color: white;
   color: #000080;
   border: 2px solid #800080;
