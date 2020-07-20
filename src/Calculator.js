@@ -28,8 +28,8 @@ export class Calculator extends React.Component{
   
   calculateBaseBMR () {
     let gendercal = this.state.gender;
-    let bmrresultmale = Math.round(66.4730 + (this.state.weight * 13.7516) + (this.state.height * 5.0033) - (this.state.age * 6.7550));
-    let bmrresultfemale = Math.round(655.0955 + (this.state.weight * 9.5634) + (this.state.height * 1.8496) - (this.state.age * 4.6756));
+    let bmrresultmale = Math.round.abs(66.4730 + (this.state.weight * 13.7516) + (this.state.height * 5.0033) - (this.state.age * 6.7550));
+    let bmrresultfemale = Math.round.abs(655.0955 + (this.state.weight * 9.5634) + (this.state.height * 1.8496) - (this.state.age * 4.6756));
   
     if(gendercal === "male"){
       this.setState({basebmr: bmrresultmale});
@@ -44,10 +44,10 @@ export class Calculator extends React.Component{
   
   calculateAdjustedBMR () {
     let exerciselevelcal = this.state.exerciselevel;
-    let sedentary = Math.round(this.state.basebmr * 1.2);
-    let moderate = Math.round(this.state.basebmr * 1.35);
-    let active = Math.round(this.state.basebmr * 1.55);
-    let veryactive = Math.round(this.state.basebmr * 1.75);
+    let sedentary = Math.round.abs(this.state.basebmr * 1.2);
+    let moderate = Math.round.abs(this.state.basebmr * 1.35);
+    let active = Math.round.abs(this.state.basebmr * 1.55);
+    let veryactive = Math.round.abs(this.state.basebmr * 1.75);
   
     if(exerciselevelcal === "sedentary"){
       this.setState({adjustedbmr: sedentary})
@@ -69,9 +69,9 @@ export class Calculator extends React.Component{
   
   calcuateGoal(){
     let primarygoal = this.state.primarygoal;
-    let lose = Math.round(this.state.adjustedbmr - 500);
-    let maintain = Math.round(this.state.adjustedbmr);
-    let gain = Math.round(this.state.adjustedbmr + 500 );
+    let lose = Math.round.abs(this.state.adjustedbmr - 500);
+    let maintain = Math.round.abs(this.state.adjustedbmr);
+    let gain = Math.round.abs(this.state.adjustedbmr + 500 );
   
     if (primarygoal === 'loseweight'){
       this.setState({goal : lose})
@@ -95,21 +95,21 @@ export class Calculator extends React.Component{
     let carbsingram= "";
   
     if (bodytype === 'ectomorph'){
-      proteiningram = Math.round(goal * 0.25 /4);
-      fatingram = Math.round(goal * 0.2 / 9);
-      carbsingram = Math.round(goal * 0.55 / 4);
+      proteiningram = Math.round.abs(goal * 0.25 /4);
+      fatingram = Math.round.abs(goal * 0.2 / 9);
+      carbsingram = Math.round.abs(goal * 0.55 / 4);
     }
   
     else if (bodytype === 'mesomorph'){
-      proteiningram = Math.round(goal * 0.3 /4);
-      fatingram = Math.round(goal * 0.3 / 9);
-      carbsingram = Math.round(goal * 0.4 / 4);
+      proteiningram = Math.round.abs(goal * 0.3 /4);
+      fatingram = Math.round.abs(goal * 0.3 / 9);
+      carbsingram = Math.round.abs(goal * 0.4 / 4);
     }
   
     else if (bodytype === 'endomorph'){
-      proteiningram = Math.round(goal * 0.35 /4);
-      fatingram = Math.round(goal * 0.4 / 9);
-      carbsingram = Math.round(goal * 0.25 / 4);
+      proteiningram = Math.round.abs(goal * 0.35 /4);
+      fatingram = Math.round.abs(goal * 0.4 / 9);
+      carbsingram = Math.round.abs(goal * 0.25 / 4);
     }
   
     this.setState({carbs: carbsingram});
